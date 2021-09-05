@@ -26,7 +26,7 @@ shell:
 	@$(cmd) sh -c 'cd $(PROJECT); bash;'
 .PHONY: new
 new:
-	@$(cmd) sh -c 'npx react-native init $(PROJECT)'
+	$(cmd) sh -c 'npx react-native init $(PROJECT)'
 .PHONY: start
 start:
 	@$(cmd) sh -c 'cd $(PROJECT); npx react-native start'
@@ -53,4 +53,9 @@ clear:
 	@sudo rm -f ${PWD}/.bash_*
 
 # -- helpers
-cmd := docker run --rm -ti -w /home/reactnative -v ${PWD}:/home/reactnative $(IMAGE)
+docker := $(shell command -v docker 2>/dev/null)
+ifdef docker
+	cmd := $(docker) run --rm -ti -w /home/reactnative -v ${PWD}:/home/reactnative $(IMAGE)
+else
+	cmd :=
+endif

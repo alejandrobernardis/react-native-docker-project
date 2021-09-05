@@ -26,13 +26,17 @@ shell:
 	@$(cmd) sh -c 'cd $(PROJECT); bash;'
 .PHONY: new
 new:
-	$(cmd) sh -c 'npx react-native init $(PROJECT)'
+	@$(cmd) sh -c 'npx react-native init $(PROJECT)'
 .PHONY: start
 start:
 	@$(cmd) sh -c 'cd $(PROJECT); npx react-native start'
 .PHONY: run
 run:
 	@$(cmd) sh -c 'cd $(PROJECT); yarn install; cd android; ./gradlew assembleRelease'
+.PHONY: debug
+debug:
+	@$(cmd) sh -c 'cd $(PROJECT); yarn install; cd android; ./gradlew assembleDebug'
+
 
 # -- build
 .PHONY: build
@@ -56,6 +60,4 @@ clear:
 docker := $(shell command -v docker 2>/dev/null)
 ifdef docker
 	cmd := $(docker) run --rm -ti -w /home/reactnative -v ${PWD}:/home/reactnative $(IMAGE)
-else
-	cmd :=
 endif

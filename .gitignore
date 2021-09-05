@@ -1,0 +1,7 @@
+.android
+.bash_*
+.cache
+.config
+.gradle
+.npm
+.yarnrc

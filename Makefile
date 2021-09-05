@@ -11,11 +11,14 @@ IMAGE = react-native-android-compiler:v2021.09
 
 # -- help
 help:
-	@echo "\n make [COMMAND]\n"
-	@echo " * shell ... run container and show the shell"
-	@echo " * new ..... create a project, ex: make new PROJECT=NAME"
-	@echo " * start ... start metro, ex: make start PROJECT=NAME"
-	@echo " * run ..... build release, ex: make start PROJECT=NAME\n\n"
+	@echo ''
+	@echo 'make [COMMAND]'
+	@echo ''
+	@echo 'COMMANDS:'
+	@echo '  shell ... run container and show the shell'
+	@echo '  new ..... create a project, ex: make new PROJECT=NAME'
+	@echo '  start ... start metro, ex: make start PROJECT=NAME'
+	@echo '  run ..... build release, ex: make start PROJECT=NAME'
 
 # -- api
 .PHONY: shell

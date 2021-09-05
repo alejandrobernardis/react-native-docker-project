@@ -42,10 +42,7 @@ debug:
 # -- build
 .PHONY: build
 build:
-	@docker buildx build ${PWD} --progress plain --tag $(IMAGE) --target compiler
-.PHONY: build-full
-build-full:
-	@docker buildx build ${PWD} --file ${PWD}/build.Dockerfile --progress plain --tag $(IMAGE)
+	@docker buildx build ${PWD} --progress plain --tag $(IMAGE)
 .PHONY: clear
 clear:
 	@sudo rm -fr ${PWD}/.android

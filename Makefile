@@ -15,23 +15,24 @@ help:
 	@echo 'make [COMMAND]'
 	@echo ''
 	@echo 'COMMANDS:'
-	@echo '  shell ... run container and show the shell'
-	@echo '  new ..... create a project, ex: make new PROJECT=NAME'
-	@echo '  start ... start metro, ex: make start PROJECT=NAME'
-	@echo '  run ..... build release, ex: make start PROJECT=NAME'
+	@echo '  shell ..... Run container and show the shell'
+	@echo '  init ...... Create a project, ex: make new PROJECT=NAME'
+	@echo '  start ..... Start metro, ex: make start PROJECT=NAME'
+	@echo '  release ... Build release, ex: make release PROJECT=NAME'
+	@echo '  debug ..... Build debug, ex: make debug PROJECT=NAME'
 
 # -- api
 .PHONY: shell
 shell:
 	@$(cmd) sh -c 'cd $(PROJECT); bash;'
-.PHONY: new
-new:
+.PHONY: init
+init:
 	@$(cmd) sh -c 'npx react-native init $(PROJECT)'
 .PHONY: start
 start:
 	@$(cmd) sh -c 'cd $(PROJECT); npx react-native start'
-.PHONY: run
-run:
+.PHONY: release
+release:
 	@$(cmd) sh -c 'cd $(PROJECT); yarn install; cd android; ./gradlew assembleRelease'
 .PHONY: debug
 debug:

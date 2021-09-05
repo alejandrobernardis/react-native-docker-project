@@ -7,7 +7,7 @@ PROJECT = ProjectName
 ENV_FILE := ${PWD}/.env
 $(eval include ${ENV_FILE})
 $(eval export sed 's/=.*//' ${ENV_FILE})
-IMAGE = react-native-android-compiler:v2021.09
+IMAGE = react-native-android-compiler:v2021.09.05.01
 
 # -- help
 help:
